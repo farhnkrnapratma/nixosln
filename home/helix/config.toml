@@ -1,0 +1,15 @@
+theme = "catppuccin_latte"
+
+[editor]
+true-color = true
+line-number = "relative"
+cursorline = true
+color-modes = true
+
+[editor.cursor-shape]
+insert = "underline"
+normal = "bar"
+select = "block"
+
+[editor.indent-guides]
+render = true
