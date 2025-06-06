@@ -20,5 +20,34 @@ return {
       mods = 'SHIFT|CTRL',
       action = wezterm.action.ToggleFullScreen,
     },
-}
+    {
+      key = 'l',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+    },
+
+    {
+      key = 'h',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+    },
+
+    {
+      key = 'j',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+    },
+
+    {
+      key = 'k',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+    },
+
+    {
+      key = 'w',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.CloseCurrentPane { confirm = true },
+    },
+  }
 }
