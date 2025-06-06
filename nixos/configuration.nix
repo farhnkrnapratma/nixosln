@@ -94,21 +94,32 @@
     fonts.packages = with pkgs; [
         nerd-fonts.fira-code
         nerd-fonts.jetbrains-mono
-        noto-fonts
         noto-fonts-cjk-sans
         noto-fonts-emoji-blob-bin
-        liberation_ttf
     ];
 
-    services.auto-cpufreq.enable = true;
+    # COSMIC
+    services.desktopManager.cosmic = {
+        enable = true;
+        xwayland.enable = true;
+    }
 
+    environment.cosmic.excludePackages = with pkgs; [
+        cosmic-player
+        cosmic-store
+        cosmic-text-editor
+    ]
+    
+    services.displayManager.cosmic-greeter = {
+        enable = true;
+        package = pkgs.cosmic-greeter;
+    }
+    
     programs.fish.enable = true;
-
-    programs.uwsm.enable = true;
-
     programs.firefox.enable = true;
 
     services.openssh.enable = true;
+    services.auto-cpufreq.enable = true;
 
     networking.firewall = {
         enable = true;
