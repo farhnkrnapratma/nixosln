@@ -9,6 +9,12 @@
     boot.loader.efi.canTouchEfiVariables = true;
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
+    security.sudo-rs = {
+        enable = true;
+        package = pkgs.sudo-rs;
+        wheelNeedsPassword = false;
+    };
+
     networking.hostName = "Fahrezza";
     networking.networkmanager.enable = true;
     networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
@@ -38,16 +44,7 @@
 
     nixpkgs.config.allowUnfree = true;
 
-    services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-        wireplumber.enable = true;
-    };
-
     environment.systemPackages = with pkgs; [
-        sudo-rs
         git
         gh
         jujutsu
@@ -102,18 +99,26 @@
     services.desktopManager.cosmic = {
         enable = true;
         xwayland.enable = true;
-    }
+    };
 
     environment.cosmic.excludePackages = with pkgs; [
         cosmic-player
         cosmic-store
         cosmic-text-editor
-    ]
+    ];
     
     services.displayManager.cosmic-greeter = {
         enable = true;
         package = pkgs.cosmic-greeter;
-    }
+    };
+
+    services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+        wireplumber.enable = true;
+    };
     
     programs.fish.enable = true;
     programs.firefox.enable = true;
