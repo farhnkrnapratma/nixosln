@@ -15,7 +15,7 @@
         wheelNeedsPassword = false;
     };
 
-    networking.hostName = "Fahrezza";
+    networking.hostName = "HanzNOS";
     networking.networkmanager.enable = true;
     networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
 
@@ -35,11 +35,13 @@
         LC_TIME = "id_ID.UTF-8";
     };
 
+    users.users.root.shell = pkgs.nushell;
+
     users.users.hanz = {
         isNormalUser = true;
         description = " Fahrezza";
         extraGroups = [ "networkmanager" "wheel" "audio" "video" "input" ];
-        shell = pkgs.fish;
+        shell = pkgs.nushell;
     };
 
     nixpkgs.config.allowUnfree = true;
@@ -72,7 +74,6 @@
         mask
         mprocs
         wezterm
-        wofi
 
         # another apps
         discord
@@ -80,7 +81,6 @@
         signal-desktop
         spotify
         libreoffice-qt-fresh
-        dfilemanager
 
         # dev tools
         rustup
@@ -104,7 +104,7 @@
     environment.cosmic.excludePackages = with pkgs; [
         cosmic-player
         cosmic-store
-        cosmic-text-editor
+        cosmic-edit
     ];
     
     services.displayManager.cosmic-greeter = {
@@ -120,11 +120,9 @@
         wireplumber.enable = true;
     };
     
-    programs.fish.enable = true;
     programs.firefox.enable = true;
 
     services.openssh.enable = true;
-    services.auto-cpufreq.enable = true;
 
     networking.firewall = {
         enable = true;
