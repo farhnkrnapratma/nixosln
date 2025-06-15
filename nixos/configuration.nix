@@ -15,7 +15,7 @@
         wheelNeedsPassword = false;
     };
 
-    networking.hostName = "HanzNOS";
+    networking.hostName = "Fahrezza";
     networking.networkmanager.enable = true;
     networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
 
@@ -32,7 +32,7 @@
         LC_NUMERIC = "id_ID.UTF-8";
         LC_PAPER = "id_ID.UTF-8";
         LC_TELEPHONE = "id_ID.UTF-8";
-        LC_TIME = "id_ID.UTF-8";
+        LC_TIME = "en_US.UTF-8";
     };
 
     users.users.root.shell = pkgs.nushell;
@@ -43,6 +43,8 @@
         extraGroups = [ "networkmanager" "wheel" "audio" "video" "input" ];
         shell = pkgs.nushell;
     };
+
+    virtualisation.waydroid.enable = true;
 
     nixpkgs.config.allowUnfree = true;
 
@@ -74,6 +76,7 @@
         mask
         mprocs
         wezterm
+        waydroid
 
         # another apps
         discord
@@ -81,11 +84,18 @@
         signal-desktop
         spotify
         libreoffice-qt-fresh
+        wpsoffice
+        onlyoffice-desktopeditors
+        protonvpn-gui
 
         # dev tools
         rustup
+        rust-analyzer
         rusty-man
         bacon
+
+        # cysec
+        burpsuite
     ];
 
     fonts.packages = with pkgs; [
@@ -105,6 +115,7 @@
         cosmic-player
         cosmic-store
         cosmic-edit
+        cosmic-term
     ];
     
     services.displayManager.cosmic-greeter = {
@@ -130,10 +141,10 @@
         trustedInterfaces = [ "wlp2s0" ];
         interfaces."wlp2s0" = {
             allowedTCPPorts = [ 22 443 993 ];
-            allowedUDPPorts = [ 53 123 ];
+            allowedUDPPorts = [ 53 123 1194 ];
         };
         logRefusedConnections = true;
     };
 
-    system.stateVersion = "25.05";
+    system.stateVersion = "25.11";
 }
