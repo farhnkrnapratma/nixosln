@@ -49,31 +49,19 @@
     environment.systemPackages = with pkgs; [
         git
         gh
-        jujutsu
         evil-helix
         yazi
-        zellij
         htop
         btop
         fastfetch
-        zenith
         bat
         eza
         zoxide
         gitui
-        ripgrep
-        fd
-        dust
-        dua
         hyperfine
-        fselect
-        delta
         tokei
         wiki-tui
         just
-        mask
-        mprocs
-        wezterm
 
         # another apps
         discord
@@ -89,7 +77,6 @@
         rustup
         rust-analyzer
         rusty-man
-        bacon
     ];
 
     fonts.packages = with pkgs; [
@@ -108,8 +95,6 @@
     environment.cosmic.excludePackages = with pkgs; [
         cosmic-player
         cosmic-store
-        cosmic-edit
-        cosmic-term
     ];
     
     services.displayManager.cosmic-greeter = {
