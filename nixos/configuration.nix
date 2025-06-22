@@ -15,7 +15,7 @@
         wheelNeedsPassword = false;
     };
 
-    networking.hostName = "Fahrezza";
+    networking.hostName = "Hanz";
     networking.networkmanager.enable = true;
     networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
 
@@ -35,16 +35,14 @@
         LC_TIME = "en_US.UTF-8";
     };
 
-    users.users.root.shell = pkgs.nushell;
+    users.users.root.shell = pkgs.fish;
 
-    users.users.hanz = {
+    users.users.farhn = {
         isNormalUser = true;
-        description = " Fahrezza";
+        description = "Administrator";
         extraGroups = [ "networkmanager" "wheel" "audio" "video" "input" ];
-        shell = pkgs.nushell;
+        shell = pkgs.fish;
     };
-
-    virtualisation.waydroid.enable = true;
 
     nixpkgs.config.allowUnfree = true;
 
@@ -76,7 +74,6 @@
         mask
         mprocs
         wezterm
-        waydroid
 
         # another apps
         discord
@@ -93,9 +90,6 @@
         rust-analyzer
         rusty-man
         bacon
-
-        # cysec
-        burpsuite
     ];
 
     fonts.packages = with pkgs; [
