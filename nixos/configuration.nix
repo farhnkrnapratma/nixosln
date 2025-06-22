@@ -69,8 +69,6 @@
         signal-desktop
         spotify
         libreoffice-qt-fresh
-        wpsoffice
-        onlyoffice-desktopeditors
         protonvpn-gui
 
         # dev tools
@@ -96,7 +94,7 @@
         cosmic-player
         cosmic-store
     ];
-    
+
     services.displayManager.cosmic-greeter = {
         enable = true;
         package = pkgs.cosmic-greeter;
@@ -109,7 +107,7 @@
         pulse.enable = true;
         wireplumber.enable = true;
     };
-    
+
     programs.firefox.enable = true;
 
     services.openssh.enable = true;
