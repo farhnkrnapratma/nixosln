@@ -77,6 +77,8 @@
         rusty-man
     ];
 
+    programs.firefox.enable = true;
+
     fonts.packages = with pkgs; [
         nerd-fonts.fira-code
         nerd-fonts.jetbrains-mono
@@ -84,7 +86,6 @@
         noto-fonts-emoji-blob-bin
     ];
 
-    # COSMIC
     services.desktopManager.cosmic = {
         enable = true;
         xwayland.enable = true;
@@ -107,8 +108,6 @@
         pulse.enable = true;
         wireplumber.enable = true;
     };
-
-    programs.firefox.enable = true;
 
     services.openssh.enable = true;
 
